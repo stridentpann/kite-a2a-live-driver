@@ -1,0 +1,230 @@
+{
+  "protocol_commit": "cae0888dd6f94d4722a8509989ba45496a2d5e44",
+  "observed_at": "2026-10-19T01:58:12.751Z",
+  "source": "live",
+  "total": 36,
+  "results": [
+    {
+      "id": "legal-01",
+      "category": "legal",
+      "status": "BLOCKED",
+      "reason": "Real Runtime, signed role-specific fixture provider and pinned proof verifier are required"
+    },
+    {
+      "id": "legal-02",
+      "category": "legal",
+      "status": "BLOCKED",
+      "reason": "Real Runtime, signed role-specific fixture provider and pinned proof verifier are required"
+    },
+    {
+      "id": "legal-03",
+      "category": "legal",
+      "status": "BLOCKED",
+      "reason": "Real Runtime, signed role-specific fixture provider and pinned proof verifier are required"
+    },
+    {
+      "id": "legal-04",
+      "category": "legal",
+      "status": "BLOCKED",
+      "reason": "Real Runtime, signed role-specific fixture provider and pinned proof verifier are required"
+    },
+    {
+      "id": "legal-05",
+      "category": "legal",
+      "status": "BLOCKED",
+      "reason": "Real Runtime, signed role-specific fixture provider and pinned proof verifier are required"
+    },
+    {
+      "id": "legal-06",
+      "category": "legal",
+      "status": "BLOCKED",
+      "reason": "Real Runtime, signed role-specific fixture provider and pinned proof verifier are required"
+    },
+    {
+      "id": "legal-07",
+      "category": "legal",
+      "status": "BLOCKED",
+      "reason": "Real Runtime, signed role-specific fixture provider and pinned proof verifier are required"
+    },
+    {
+      "id": "legal-08",
+      "category": "legal",
+      "status": "BLOCKED",
+      "reason": "Real Runtime, signed role-specific fixture provider and pinned proof verifier are required"
+    },
+    {
+      "id": "legal-09",
+      "category": "legal",
+      "status": "BLOCKED",
+      "reason": "Real Runtime, signed role-specific fixture provider and pinned proof verifier are required"
+    },
+    {
+      "id": "legal-10",
+      "category": "legal",
+      "status": "BLOCKED",
+      "reason": "Real Runtime, signed role-specific fixture provider and pinned proof verifier are required"
+    },
+    {
+      "id": "legal-11",
+      "category": "legal",
+      "status": "BLOCKED",
+      "reason": "Real Runtime, signed role-specific fixture provider and pinned proof verifier are required"
+    },
+    {
+      "id": "legal-12",
+      "category": "legal",
+      "status": "BLOCKED",
+      "reason": "Real Runtime, signed role-specific fixture provider and pinned proof verifier are required"
+    },
+    {
+      "id": "legal-13",
+      "category": "legal",
+      "status": "BLOCKED",
+      "reason": "Real Runtime, signed role-specific fixture provider and pinned proof verifier are required"
+    },
+    {
+      "id": "selfLoops-01",
+      "category": "selfLoops",
+      "status": "BLOCKED",
+      "reason": "Real Runtime, signed role-specific fixture provider and pinned proof verifier are required"
+    },
+    {
+      "id": "selfLoops-02",
+      "category": "selfLoops",
+      "status": "BLOCKED",
+      "reason": "Real Runtime, signed role-specific fixture provider and pinned proof verifier are required"
+    },
+    {
+      "id": "selfLoops-03",
+      "category": "selfLoops",
+      "status": "BLOCKED",
+      "reason": "Real Runtime, signed role-specific fixture provider and pinned proof verifier are required"
+    },
+    {
+      "id": "selfLoops-04",
+      "category": "selfLoops",
+      "status": "BLOCKED",
+      "reason": "Real Runtime, signed role-specific fixture provider and pinned proof verifier are required"
+    },
+    {
+      "id": "selfLoops-05",
+      "category": "selfLoops",
+      "status": "BLOCKED",
+      "reason": "Real Runtime, signed role-specific fixture provider and pinned proof verifier are required"
+    },
+    {
+      "id": "illegal-01",
+      "category": "illegal",
+      "status": "BLOCKED",
+      "reason": "Real Runtime, signed role-specific fixture provider and pinned proof verifier are required"
+    },
+    {
+      "id": "illegal-02",
+      "category": "illegal",
+      "status": "BLOCKED",
+      "reason": "Real Runtime, signed role-specific fixture provider and pinned proof verifier are required"
+    },
+    {
+      "id": "illegal-03",
+      "category": "illegal",
+      "status": "BLOCKED",
+      "reason": "Real Runtime, signed role-specific fixture provider and pinned proof verifier are required"
+    },
+    {
+      "id": "illegal-04",
+      "category": "illegal",
+      "status": "BLOCKED",
+      "reason": "Real Runtime, signed role-specific fixture provider and pinned proof verifier are required"
+    },
+    {
+      "id": "illegal-05",
+      "category": "illegal",
+      "status": "BLOCKED",
+      "reason": "Real Runtime, signed role-specific fixture provider and pinned proof verifier are required"
+    },
+    {
+      "id": "illegal-06",
+      "category": "illegal",
+      "status": "BLOCKED",
+      "reason": "Real Runtime, signed role-specific fixture provider and pinned proof verifier are required"
+    },
+    {
+      "id": "illegal-07",
+      "category": "illegal",
+      "status": "BLOCKED",
+      "reason": "Real Runtime, signed role-specific fixture provider and pinned proof verifier are required"
+    },
+    {
+      "id": "actorBinding-01",
+      "category": "actorBinding",
+      "status": "BLOCKED",
+      "reason": "Real Runtime, signed role-specific fixture provider and pinned proof verifier are required"
+    },
+    {
+      "id": "actorBinding-02",
+      "category": "actorBinding",
+      "status": "BLOCKED",
+      "reason": "Real Runtime, signed role-specific fixture provider and pinned proof verifier are required"
+    },
+    {
+      "id": "actorBinding-03",
+      "category": "actorBinding",
+      "status": "BLOCKED",
+      "reason": "Real Runtime, signed role-specific fixture provider and pinned proof verifier are required"
+    },
+    {
+      "id": "actorBinding-04",
+      "category": "actorBinding",
+      "status": "BLOCKED",
+      "reason": "Real Runtime, signed role-specific fixture provider and pinned proof verifier are required"
+    },
+    {
+      "id": "actorBinding-05",
+      "category": "actorBinding",
+      "status": "BLOCKED",
+      "reason": "Real Runtime, signed role-specific fixture provider and pinned proof verifier are required"
+    },
+    {
+      "id": "actorBinding-06",
+      "category": "actorBinding",
+      "status": "BLOCKED",
+      "reason": "Real Runtime, signed role-specific fixture provider and pinned proof verifier are required"
+    },
+    {
+      "id": "concurrency-01",
+      "category": "concurrency",
+      "status": "BLOCKED",
+      "reason": "Real Runtime, signed role-specific fixture provider and pinned proof verifier are required"
+    },
+    {
+      "id": "concurrency-02",
+      "category": "concurrency",
+      "status": "BLOCKED",
+      "reason": "Real Runtime, signed role-specific fixture provider and pinned proof verifier are required"
+    },
+    {
+      "id": "concurrency-03",
+      "category": "concurrency",
+      "status": "BLOCKED",
+      "reason": "Real Runtime, signed role-specific fixture provider and pinned proof verifier are required"
+    },
+    {
+      "id": "fundingDealIdentity-01",
+      "category": "fundingDealIdentity",
+      "status": "BLOCKED",
+      "reason": "Real Runtime, signed role-specific fixture provider and pinned proof verifier are required"
+    },
+    {
+      "id": "fundingDealIdentity-02",
+      "category": "fundingDealIdentity",
+      "status": "BLOCKED",
+      "reason": "Real Runtime, signed role-specific fixture provider and pinned proof verifier are required"
+    }
+  ],
+  "full_conformance": false,
+  "summary": {
+    "PASS": 0,
+    "FAIL": 0,
+    "BLOCKED": 36
+  }
+}
