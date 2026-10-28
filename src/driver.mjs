@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import { randomUUID } from "node:crypto";
 import { canonical, hash, fault, clean } from "./store.mjs";
+import { decoded } from "./fixtures.mjs";
 export const protocolCommit = "cae0888dd6f94d4722a8509989ba45496a2d5e44";
 export function plan(
   spec = JSON.parse(
@@ -143,6 +144,8 @@ export async function run({
         kind: "status",
         dealId: resource.dealId,
       });
+      if (c.from && decoded(before).status?.state !== c.from)
+        throw fault("runtime_initial_state_mismatch");
       // Runtime/deadline observations must be driven by the runtime operator fixture, never a fabricated party command.
       const observation = await fixture.execute(c, {
         transport,
@@ -158,6 +161,16 @@ export async function run({
         kind: "status",
         dealId: resource.dealId,
       });
+      if (
+        ["legal", "selfLoops"].includes(c.category) &&
+        decoded(after).status?.state !== c.to
+      )
+        throw fault("runtime_destination_state_mismatch");
+      if (
+        ["illegal", "actorBinding"].includes(c.category) &&
+        hash(decoded(before).status) !== hash(decoded(after).status)
+      )
+        throw fault("runtime_rejected_command_changed_state");
       const proofs = await fixture.captureProofs(resource, {
         transport,
         roles,
@@ -201,6 +214,14 @@ export async function run({
     results,
     full_conformance:
       source === "live" &&
+      testPlan.protocol_commit === protocolCommit &&
+      testPlan.cases.length === plan().case_count &&
+      new Set(testPlan.cases.map((c) => c.id)).size === plan().case_count &&
+      plan().cases.every((c) =>
+        testPlan.cases.some(
+          (item) => item.id === c.id && hash(item) === hash(c),
+        ),
+      ) &&
       results.length > 0 &&
       results.every((r) => r.status === "PASS"),
     summary: Object.fromEntries(

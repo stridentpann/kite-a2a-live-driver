@@ -1,10 +1,19 @@
 {
-  "observed_at": "2026-10-19T01:57:09.027Z",
+  "observed_at": "2026-10-28T12:45:35.290Z",
+  "version": "0.2.0",
   "project": "kite-a2a-live-driver",
   "status": "PASS",
-  "test_cases": 6,
+  "node_runtime": "v24.22.1",
+  "test_cases": null,
   "dotnet_assertions": null,
   "evidence_level": "E1",
-  "scope": "Local contracts; nine shared seller tests are repeated in five consumer repositories",
-  "live_payment_performed": false
+  "actual_spend": false,
+  "log_sha256": "95303be02b2e20c8b33d1787421284ddb3e5c25657d192ef91b94f51e0062aa1",
+  "http": null,
+  "live_gate": {
+    "status": "BLOCKED",
+    "online_cases": 36,
+    "reason": "No real Runtime, actor credentials, signed recipes, proof checkout and authorized funds were provided. Doctor is only local configuration inspection."
+  },
+  "scope": "Current local unit/contract tests; shared seller tests are counted per consuming repository. No funded Passport execution."
 }

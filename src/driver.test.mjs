@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { plan, run, envelope, Transport } from "./driver.mjs";
 import { readFileSync } from "node:fs";
 import { decoded, SignedFixtureDriver } from "./fixtures.mjs";
+import { doctor } from "./doctor.mjs";
 test("case denominator derives from complete fixed transition document", () => {
   const s = JSON.parse(
     readFileSync(new URL("../spec/transitions.json", import.meta.url)),
@@ -94,4 +95,53 @@ test("fixture driver refuses missing signed formation and unbounded funding", as
     }),
     payload,
   );
+});
+test("doctor exposes missing environment without sending any command", () => {
+  const r = doctor();
+  assert.equal(r.ready, false);
+  assert.equal(r.network_requests_sent, 0);
+  assert.equal(r.actual_spend, false);
+  assert.equal(
+    r.checks.filter((c) => /^legal-/.test(c.name)).length,
+    plan().cases.filter((c) => c.category === "legal").length,
+  );
+});
+test("a fixture assertion cannot override an independently observed wrong destination", async () => {
+  const c = plan().cases.find((c) => c.category === "legal" && c.from && c.to);
+  let calls = 0;
+  const reply = (state) => ({
+    response: {
+      result: {
+        message: {
+          parts: [
+            {
+              mediaType:
+                "application/vnd.gokite.agreement-command+json;version=1",
+              raw: Buffer.from(
+                JSON.stringify({ status: { state, revision: 1 } }),
+              ).toString("base64"),
+            },
+          ],
+        },
+      },
+    },
+  });
+  const r = await run({
+    testPlan: { ...plan(), cases: [c] },
+    transport: { send: async () => reply(++calls === 1 ? c.from : "WRONG") },
+    fixture: {
+      prepare: async () => ({ dealId: "fixture", state: c.from }),
+      execute: async () => ({ assertions: [{ passed: true }] }),
+      captureProofs: async () => ({}),
+      cleanup: async () => {},
+    },
+    proofVerifier: async () => ({ valid: true }),
+    roles: { buyer: "b", seller: "s", arbiter: "a" },
+    allowSpend: true,
+    budgetBaseUnits: "1",
+    source: "mock",
+  });
+  assert.equal(r.results[0].status, "FAIL");
+  assert.equal(r.results[0].reason, "runtime_destination_state_mismatch");
+  assert.equal(r.full_conformance, false);
 });

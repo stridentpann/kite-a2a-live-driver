@@ -12,6 +12,14 @@ export function officialProofVerifier({ checkout, python = "python3" }) {
     }).trim();
     if (commit !== protocolCommit)
       return { valid: false, reason: "protocol_commit_mismatch" };
+    if (
+      execFileSync(
+        "git",
+        ["-C", root, "status", "--porcelain", "--untracked-files=all"],
+        { encoding: "utf8" },
+      ).trim()
+    )
+      return { valid: false, reason: "dirty_verifier_checkout" };
     const local = readFileSync(join(root, "conformance/run.py"));
     const committed = execFileSync("git", [
       "-C",

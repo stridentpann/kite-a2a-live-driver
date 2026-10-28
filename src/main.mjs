@@ -2,10 +2,22 @@ import { plan, run, Transport } from "./driver.mjs";
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { resolve } from "node:path";
 import { pathToFileURL } from "node:url";
+import { doctor } from "./doctor.mjs";
 const [command = "plan", ...args] = process.argv.slice(2);
 const value = (k) => (args.includes(k) ? args[args.indexOf(k) + 1] : null);
 mkdirSync("reports", { recursive: true });
-if (command === "plan") {
+if (command === "doctor") {
+  const report = doctor({
+    runtime: value("--runtime"),
+    roles: JSON.parse(process.env.A2A_ROLE_REFS || "{}"),
+    checkout: process.env.A2A_SPEC_CHECKOUT,
+    recipesFile: process.env.A2A_SIGNED_RECIPES_FILE,
+    budgetBaseUnits: value("--budget-base-units") || "0",
+  });
+  writeFileSync("reports/doctor.json", JSON.stringify(report, null, 2));
+  console.log(JSON.stringify(report));
+  if (!report.ready) process.exitCode = 1;
+} else if (command === "plan") {
   const p = plan();
   writeFileSync("reports/plan.json", JSON.stringify(p, null, 2));
   console.log(`${p.case_count} normative cases from ${p.protocol_commit}`);
